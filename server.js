@@ -44,9 +44,22 @@ server.route ({
     }
 });
 
+server.route({
+    path: '/cards/new',
+    method: 'POST',
+    handler: function (request, reply) {
+        reply.redirect('/cards');
+    }
+})
 
-  server.start(function() {
+server.route({
+    path: '/cards',
+    method: 'GET',
+    handler: function(request, reply) {
+        reply.file('templates/cards.html');
+    }
+})
+
+server.start(function() {
       console.log('Listening on ' + server.info.uri);
-  }); 
-
-
+  })
