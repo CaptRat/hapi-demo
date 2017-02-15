@@ -33,10 +33,18 @@ server.route({
             path: './public',
             listing: false,
         }
-
     }
 })
-        
+
+server.route ({
+    path: '/cards/new',
+    method: 'GET',
+    handler: function(request,reply) {
+        reply.file('templates/new.html');
+    }
+});
+
+
   server.start(function() {
       console.log('Listening on ' + server.info.uri);
   }); 
